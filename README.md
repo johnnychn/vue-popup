@@ -1,7 +1,7 @@
 # vue-popup
 popup for vue.js
 
-require underscore and [css-builder](https://github.com/johnnyGoo/css-builder)
+require [underscore](https://github.com/jashkenas/underscore) and [css-builder](https://github.com/johnnyGoo/css-builder)
 
 # setting
 mask-close Boolean true
