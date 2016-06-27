@@ -5,6 +5,7 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 
 # setting
 | 名称               |类型               |默认       | 说明                                     |
+| ----------------- | ----------------- | -------- | ---------------------------------------- |
 | mask-close        |Boolean            |true      |                                          |
 |z-index            |Number/String      |100       |                                          |
 |title              |String             |""        |                                          |
