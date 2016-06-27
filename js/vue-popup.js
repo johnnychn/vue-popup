@@ -65,7 +65,7 @@ if (typeof Vue === 'undefined') {
             },
             closeButton: {
                 type: Boolean,
-                default: false
+                default: true
             },
             confirmButton: {
                 type: String,
