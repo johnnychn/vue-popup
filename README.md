@@ -4,41 +4,26 @@ popup for vue.js
 require [underscore](https://github.com/jashkenas/underscore) and [css-builder](https://github.com/johnnyGoo/css-builder)
 
 # setting
-mask-close Boolean true
+| 名称               |类型               |默认       | 说明                                     |
+| mask-close        |Boolean            |true      |                                          |
+|z-index            |Number/String      |100       |                                          |
+|title              |String             |""        |                                          |
+|title-color        |String             |'#000'    |                                          |
+|title-background   |String             |'#fff'    |                                          |
+|title-border-bottom|String             |'#000'    |                                          |
+|close-button       |Boolean            |true      |                                          |
+|close-color        |String             |'#fff'    |                                          |
+|content-background |String             |'#000'    |                                          |
+|content            |String             |""        |                                          |
+|button-background  |String             |'#337ab7' |                                          |
+|button-color       |String             |'#fff'       |                                          |
+|button-border      |String             |'1px solid #2e6da4'       |                                          |
+|confirm-button     |String             |'OK'       |                                          |
+|cancel-button      |String             |'Cancel'       |                                          |
+|popup              |String             |{show: false, shaking: false}       |                                          |
+|transition-object              |String             |{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100},leave:{'transition-delay': '.0s',opacity:0,y:20,scale:1}}       |                                          |
 
-z-index default 100
 
-title string default '';
-
-title-color string default '#000';
-
-title-background string default '#fff';
-
-title-border string default '#000';
-
-title-border-bottom string default '#000';
-
-close-button Boolean true;
-
-close-color string default '#fff';
-
-content-background string default '#000';
-
-content string default '';
-
-button-background string default '#337ab7';
-
-button-color string default '#fff';
-
-button-border string default '1px solid #2e6da4';
-
-confirm-button string default 'OK';
-
-cancel-button string default 'Cancel';
-
-popup Object default  {show: false, shaking: false};
-
-transition-object string default "{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100},leave:{'transition-delay': '.0s',opacity:0,y:20,scale:1}}";
 
 
 
@@ -55,7 +40,8 @@ transition-object string default "{transition:{transition:'all .4s cubic-bezier(
 
 #Excample
 * html
-```html <vue-popup close-color="#000" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4"
+```html
+<vue-popup close-color="#000" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4"
                 content-background="#fff" button-background="#337ab7" button-color="#fff" button-border="1px solid #2e6da4"
                  :popup.sync="popup"
                 transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:100,scale:1}}"
@@ -64,7 +50,8 @@ transition-object string default "{transition:{transition:'all .4s cubic-bezier(
      到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button='确认'
                 cancel-button='取消' z-index="100">
 
-     </vue-popup>```
+     </vue-popup>
+```
 * js
 ```js new Vue({
          el: '#example',
