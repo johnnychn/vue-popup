@@ -4,39 +4,34 @@ popup for vue.js
 require [underscore](https://github.com/jashkenas/underscore) and [css-builder](https://github.com/johnnyGoo/css-builder)
 
 # setting
-| 名称               |类型               |默认       | 说明                                     |
-| ----------------- | ----------------- | -------- | ---------------------------------------- |
-| mask-close        |Boolean            |true      |                                          |
-|z-index            |Number/String      |100       |                                          |
-|title              |String             |""        |                                          |
-|title-color        |String             |'#000'    |                                          |
-|title-background   |String             |'#fff'    |                                          |
-|title-border-bottom|String             |'#000'    |                                          |
-|close-button       |Boolean            |true      |                                          |
-|close-color        |String             |'#fff'    |                                          |
-|content-background |String             |'#000'    |                                          |
-|content            |String             |""        |                                          |
-|button-background  |String             |'#337ab7' |                                          |
-|button-color       |String             |'#fff'       |                                          |
-|button-border      |String             |'1px solid #2e6da4'       |                                          |
-|confirm-button     |String             |'OK'       |                                          |
-|cancel-button      |String             |'Cancel'       |                                          |
-|popup              |String             |{show: false, shaking: false}       |                                          |
-|transition-object              |String             |{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100},leave:{'transition-delay': '.0s',opacity:0,y:20,scale:1}}       |                                          |
-
-
+| 名称                    |类型               |默认       | 说明                                     |
+| ----------------------- | ----------------- | -------- | ---------------------------------------- |
+|mask-close               |Boolean            |true      | 点击空白处是否关闭                                        |
+|z-index                  |Number/String      |100       | z-index                                  |
+|title                    |String             |""        | 标题 如果''隐藏标题                               |
+|title-color              |String             |'#000'    | 标题颜色                            |
+|title-background         |String             |'#fff'    | 标题背景颜色                                        |
+|title-border-bottom      |String             |'1px solid #f0f0f0'|  标题下边框                                        |
+|close-button             |Boolean            |true      | 是否现实关闭按钮                           |
+|close-color              |String             |'#fff'    | 关闭按钮颜色                              |
+|content-background       |String             |'#000'    | 内容背景颜色                              |
+|content                  |String             |""        | 内容 支持html                              |
+|button-background        |String             |'#337ab7' | 按钮背景                             |
+|button-color             |String             |'#fff'       |  按钮颜色                                         |
+|button-border            |String             |'1px solid #2e6da4'       |  按钮边框                                         |
+|confirm-button           |String             |'OK'       | 确认按钮文字                                        |
+|cancel-button            |String             |'Cancel'       | 取消按钮文字                                        |
+|popup                    |String             |{show: false, shaking: false}       |  控制popUp对象                                        |
+|transition-object        |String             |{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100},leave:{'transition-delay': '.0s',opacity:0,y:20,scale:1}}       | transition 对象 ,详见CssBuilder                                      |
 
 
 
 #Event
-#####popup-close
-* callback on close
-
-#####popup-confirm
-* callback on confirm
-
-#####popup-cancel
-* callback on cancel
+| 名称                    |说明                |
+| ----------------------- | ----------------- |
+| popup-close             |callback on close  |
+| popup-confirm           |callback on confirm|
+| popup-cancel            |callback on cancel |
 
 
 #Excample

@@ -48,8 +48,8 @@
       <file leaf-file-name="vue-popup.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/vue-popup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.62963">
-              <caret line="152" column="44" selection-start-line="152" selection-start-column="38" selection-end-line="152" selection-end-column="44" />
+            <state vertical-scroll-proportion="-12.518518">
+              <caret line="87" column="73" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="73" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -60,8 +60,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15373352">
-              <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+            <state vertical-scroll-proportion="0.8125915">
+              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -249,8 +249,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/vue-popup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.62963">
-          <caret line="152" column="44" selection-start-line="152" selection-start-column="38" selection-end-line="152" selection-end-column="44" />
+        <state vertical-scroll-proportion="-12.518518">
+          <caret line="87" column="73" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="73" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -259,8 +259,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15373352">
-          <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+        <state vertical-scroll-proportion="0.8125915">
+          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
           <folding />
         </state>
       </provider>
