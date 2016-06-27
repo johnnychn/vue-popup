@@ -49,7 +49,8 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
      </vue-popup>
 ```
 * js
-```js new Vue({
+```js
+ new Vue({
          el: '#example',
          data: {msg: 'aaa', picked: '1122', popup: {show: false,shaking:false},popup2: {show: false,shaking:false}},
          events: {
