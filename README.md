@@ -1,7 +1,7 @@
 # vue-popup
 popup for vue.js
 
-require underscore and css-builder
+require underscore and [css-builder](https://github.com/johnnyGoo/css-builder)
 
 # setting
 mask-close Boolean true
@@ -49,7 +49,7 @@ transition-object string default "{transition:{transition:'all .4s cubic-bezier(
 #####popup-confirm
 * callback on confirm
 
-#####popup-cancel 
+#####popup-cancel
 * callback on cancel
 
 
