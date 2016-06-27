@@ -1,11 +1,8 @@
 /*!
- * jquery-confirm v2.0.0 (http://craftpip.github.io/jquery-confirm/)
- * Author: Boniface Pereira
- * Website: www.craftpip.com
- * Contact: hey@craftpip.com
+ * vue-popup v0.0.1 (https://github.com/johnnyGoo/vue-popup)
+ * Author: Johnny chen
  *
- * Copyright 2013-2015 jquery-confirm
- * Licensed under MIT (https://github.com/craftpip/jquery-confirm/blob/master/LICENSE)
+ * Copyright 2013-2015 Johnny chen
  */
 
 if (typeof _ === 'undefined') {
@@ -221,7 +218,7 @@ if (typeof Vue === 'undefined') {
                         css['margin-bottom'] = 30
                     }
                     this.$el.querySelector('.vue-popup-scroll').scrollTop = 0;
-                    CssBuilder.css(this.$el.querySelector('.vue-popup-panel'), css, 'px');
+                    CssBuilder.cssSmartObject(this.$el.querySelector('.vue-popup-panel'), css, 'px');
                 } else {
 
                 }
