@@ -37,16 +37,17 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 #Excample
 * html
 ```html
-<vue-popup close-color="#000" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4"
-                content-background="#fff" button-background="#337ab7" button-color="#fff" button-border="1px solid #2e6da4"
-                 :popup.sync="popup"
-                transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:100,scale:1}}"
-                content=" 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/>
+ <vue-popup close-color="#000" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4"
+               content-background="#fff" button-background="#337ab7" button-color="#fff"
+               button-border="1px solid #2e6da4"
+               :popup.sync="popup"
+               transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:100,scale:1}}"
+               content=" 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/>
          <img src='http://p5.img.cctvpic.com/nettv/newgame/2012/0420/20120420115108971.jpg' style='width: 100%'>
      到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button='确认'
-                cancel-button='取消' z-index="100">
+               cancel-button='取消' z-index="100">
 
-     </vue-popup>
+    </vue-popup>
 ```
 * js
 ```js
@@ -70,7 +71,7 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Michael Villar
+Copyright (c) 2016 Johnny Chen
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
