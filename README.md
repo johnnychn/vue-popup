@@ -43,13 +43,13 @@ transition-object string default "{transition:{transition:'all .4s cubic-bezier(
 
 
 #Event
-###popup-close
+#####popup-close
 * callback on close
 
-###popup-confirm 
+#####popup-confirm
 * callback on confirm
 
-###popup-cancel 
+#####popup-cancel 
 * callback on cancel
 
 
