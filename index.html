@@ -15,13 +15,23 @@
     <script src="js/fastclick.js"></script>
     <script src="js/css-builder.0.0.1.min.js"></script>
     <script src="js/vue-popup.js"></script>
+    <style>
+        .btn{
+            padding: 10px;
+            border: 1px solid #999;
+            border-radius: 10px;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
-<div id="example">
-    <div @click="popup.show=true" style="cursor: pointer">open1</div>
-    <div @click="popup2.show=true" style="cursor: pointer">open</div>
-    <vue-popup title="hello vue.js abcdefg" :has-title=true :popup.sync="popup2"
-               transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1.2},leave:{'transition-delay': '.0s',opacity:0,y:20,scale:0.9}}"
+<div id="example" >
+    <div class="btn" @click="popup.show=true" style="cursor: pointer">Open 1</div>
+    <div class="btn" @click="popup2.show=true" style="cursor: pointer">Open 2</div>
+    <vue-popup title="hello vue.js abcdefg"  :popup.sync="popup2"
+               transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1.2},leave:{'transition-delay': '.0s',opacity:0,y:20,scale:0.9}}"
                content=" 到松<br/>" :mask-close=true :close-button=true confirm-button='确认'
                cancel-button='取消' z-index="100">
 
@@ -33,10 +43,10 @@
         到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/>
     </vue-popup>
 
-    <vue-popup title="Dota" close-color="#fff" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4"
+    <vue-popup close-color="#000" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4"
                content-background="#fff" button-background="#337ab7" button-color="#fff" button-border="1px solid #2e6da4"
-               :has-title=true :popup.sync="popup"
-               transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:100,scale:1}}"
+                :popup.sync="popup"
+               transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:100,scale:1}}"
                content=" 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/>
         <img src='http://p5.img.cctvpic.com/nettv/newgame/2012/0420/20120420115108971.jpg' style='width: 100%'>
     到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button='确认'
