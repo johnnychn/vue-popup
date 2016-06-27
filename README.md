@@ -55,9 +55,21 @@ transition-object string default "{transition:{transition:'all .4s cubic-bezier(
 
 #Excample
 * html
-`<vue-popup close-color="#000" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4" content-background="#fff" button-background="#337ab7" button-color="#fff" button-border="1px solid #2e6da4" :popup.sync="popup" transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:100,scale:1}}" content=" 到松<br/>" :mask-close=false :close-button=true confirm-button='确认' cancel-button='取消' z-index="100"></vue-popup>`
+```html <vue-popup close-color="#000" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4"
+                content-background="#fff" button-background="#337ab7" button-color="#fff" button-border="1px solid #2e6da4"
+                 :popup.sync="popup"
+                transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:100,scale:1}}"
+                content=" 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/>
+         <img src='http://p5.img.cctvpic.com/nettv/newgame/2012/0420/20120420115108971.jpg' style='width: 100%'>
+     到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button='确认'
+                cancel-button='取消' z-index="100">
+
+     </vue-popup>```
 * js
-`new Vue({el: '#example',data: {msg: 'aaa', picked: '1122', popup: {show: false,shaking:false},popup2: {show: false,shaking:false}}, events: {
+```js new Vue({
+         el: '#example',
+         data: {msg: 'aaa', picked: '1122', popup: {show: false,shaking:false},popup2: {show: false,shaking:false}},
+         events: {
              'popup-confirm': function (obj) {
                  // 事件回调内的 `this` 自动绑定到注册它的实例上
                //  obj.show=false;
@@ -65,8 +77,8 @@ transition-object string default "{transition:{transition:'all .4s cubic-bezier(
                 console.log(obj)
              }
          }
-     });`
-
+     });
+```
 
 
 
