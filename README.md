@@ -41,22 +41,16 @@ popup Object default  {show: false, shaking: false};
 transition-object string default "{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100},leave:{'transition-delay': '.0s',opacity:0,y:20,scale:1}}";
 
 
-#Event
-popup-close callback on close
-
-popup-confirm callback on confirm
-
-popup-cancel callback on cancel
 
 #Event
 ###popup-close
-*callback on close
+* callback on close
 
 ###popup-confirm 
-*callback on confirm
+* callback on confirm
 
 ###popup-cancel 
-*callback on cancel
+* callback on cancel
 
 
 #License
