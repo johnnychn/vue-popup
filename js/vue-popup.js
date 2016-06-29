@@ -82,11 +82,11 @@ if (typeof Vue === 'undefined') {
             closeColor: {type: String, default: "#000"},
             titleColor: {type: String, default: "#000"},
             titleBackground: {type: String, default: "#fff"},
-            titleBorderBottom: {type: String, default: "1px solid #f0f0f0"},
+            titleBorderBottom: {type: String, default: "1px solid #ddd"},
             contentBackground: {type: String, default: "#fff"},
             buttonColor:{type: String, default: "#000"},
             buttonBackground: {type: String, default: "#fff"},
-            buttonBorder: {type: String, default: "1px solid #d0d0d0"}
+            buttonBorder: {type: String, default: "1px solid #666"}
 
         },
         data: function () {
