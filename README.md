@@ -23,6 +23,9 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 |cancel-button            |String             |'Cancel'       | 取消按钮文字                                        |
 |popup                    |String             |{show: false, shaking: false}       |  控制popUp对象                                        |
 |transition-object        |String             |{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s'},enter:{'transition-delay': '.2s',opacity:0,scale:1.2},leave:{'transition-delay': '.0s',opacity:0,scale:0.8}}       | transition 对象 ,详见CssBuilder                                      |
+|box-shadow               |string             |'0 2px 3px #000'| 窗口投影
+|title-align              |string             |'left'    | 标题文字对齐
+|mask-background          |string             |'rgba(0,0,0,0.6)'| 蒙板背景
 
 
 
