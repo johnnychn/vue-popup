@@ -29,13 +29,13 @@ if (typeof Vue === 'undefined') {
         '30%, 50%, 70%': {transform: 'translate3d(-8px, 0, 0)'},
         '40%, 60%': {transform: 'translate3d(8px, 0, 0)'}
     });
+
     CssBuilder.createCssObject('.' + shake_class_name, {
         'animation-name': anim.name,
         'animation-duration': '.82s',
         'animation-timing-function': 'cubic-bezier(0.36,0.07,0.19,0.97)',
         'animation-iteration-count': '1'
     }, 'px');
-
 
 // 注册
     Vue.component('vue-popup', {
@@ -74,7 +74,7 @@ if (typeof Vue === 'undefined') {
             },
             transitionObject: {
                 type: String,
-                default: "{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s'},enter:{'transition-delay': '.2s',opacity:0,scale:1.2},leave:{'transition-delay': '.0s',opacity:0,scale:0.8}}"
+                default: "{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.02)',opacity:1,scale:1,'transition-delay': '.2s'},enter:{'transition-delay': '.2s',opacity:0,scale:1.2},leave:{transition:'all .35s cubic-bezier(.46,.05,.77,-0.4)','transition-delay': '.0s',opacity:0,scale:0.8}}"
             },
             zIndex: {
                 default: 100
@@ -168,14 +168,16 @@ if (typeof Vue === 'undefined') {
             var ext = initCss.ext || 'px';
             delete initCss.ext;
             _.each(initCss, function (obj, key) {
+
                 CssBuilder.createCssObject('.' + trans + '-' + key, obj, ext);
             });
             trans = this.mask_transition;
             var maskCss = {
-                transition: {opacity: 1, transition: 'all .3s ease', 'transition-delay': '.0s'},
-                leave: {opacity: 0, 'transition-delay': '.2s'},
+                transition: {opacity: 1, transition: 'all .4s ease', 'transition-delay': '.0s'},
+                leave: {opacity: 0, 'transition-delay': '.3s'},
                 enter: {opacity: 0, 'transition-delay': '.0s'}
             };
+
             _.each(maskCss, function (obj, key) {
                 CssBuilder.createCssObject('.' + trans + '-' + key, obj, ext);
             });
