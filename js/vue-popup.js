@@ -139,25 +139,14 @@ if (typeof Vue === 'undefined') {
                 this.mask_click = true;
             },
             close: function () {
-                if (_.isFunction(this.popup.close)) {
-                    this.popup.close.call(this.popup,this.popup)
-                }
                 this.popup.show = false;
                 this.popup.shaking = false;
                 this.$dispatch('popup-close', this.popup);
-
             },
             confirm: function () {
-                if (_.isFunction(this.popup.confirm)) {
-                    this.popup.confirm.call(this.popup,this.popup)
-                }
                 this.$dispatch('popup-confirm', this.popup);
             },
             cancel: function () {
-
-                if (_.isFunction(this.popup.cancel)) {
-                    this.popup.cancel.call(this.popup,this.popup)
-                }
                 this.$dispatch('popup-cancel', this.popup);
                 this.close();
             }

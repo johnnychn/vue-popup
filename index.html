@@ -30,7 +30,7 @@
 <div id="example">
     <div class="btn" @click="popup.show=true" style="cursor: pointer">Open 1</div>
     <div class="btn" @click="popup2.show=true" style="cursor: pointer">Open 2</div>
-    <vue-popup title="确认?" :popup.sync="popup2" z-index="10000"
+    <vue-popup title="确认?" :popup.sync="popup2"  @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="10000"
                z-index="100">
         Do this?
     </vue-popup>
@@ -64,12 +64,20 @@
         data: {
             msg: 'aaa', picked: '1122',
             popup: {
-                show: false, shaking: false, confirm: function (obj) {
-                    console.log('窗口1确认',obj)
-                }
-            }, popup2: {show: false, shaking: false,confirm: function (obj) {
-                console.log('窗口2确认',obj)
-            }}
+                show: false, shaking: false
+            }, popup2: {show: false, shaking: false}
+        },
+        methods:{
+            close:function (obj) {
+                console.log('关闭事件:',obj)
+            },
+            cancel:function (obj) {
+                console.log('取消事件:',obj)
+            }
+            ,confirm: function (obj) {
+                console.log('确认事件:',obj);
+                return true; //返回true 继续冒泡
+            }
         },
         events: {
             'popup-confirm': function (obj) {

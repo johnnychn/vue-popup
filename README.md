@@ -34,9 +34,6 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 | ----------------------- | ----------------- | -------- | ---------------------------------------- |
 | popup.show              |Boolean            |false      | 是否显示|
 | popup.shaking           |Boolean            |false      | 是否震动窗口|
-| popup.confirm           |Function           |无        |确认回调函数 |
-| popup.cancel            |Function           |无        |取消回调函数 (取消后会调用关闭回调)  |
-| popup.close             |Function           |无        |关闭回调函数 |
 
 
 #Event
@@ -50,7 +47,7 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 #Example
 * html
 ```html
-  <vue-popup title="确认?" :popup.sync="popup2" z-index="100">
+  <vue-popup title="确认?" :popup.sync="popup"   @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="100">
      Do this?
   </vue-popup>
 ```
@@ -58,13 +55,24 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 ```js
  new Vue({
          el: '#example',
-         data: {msg: 'aaa', picked: '1122', popup: {show: false,shaking:false},popup2: {show: false,shaking:false}},
-         events: {
+         data: {msg: 'aaa', picked: '1122', popup: {show: false,shaking:false}},
+           methods:{
+                     close:function (obj) {
+                         console.log('关闭事件:',obj)
+                     },
+                     cancel:function (obj) {
+                         console.log('取消事件:',obj)
+                     }
+                     ,confirm: function (obj) {
+                         console.log('确认事件:',obj);
+                         return true; //返回true 继续冒泡
+                     }
+                 },events: {
              'popup-confirm': function (obj) {
                  // 事件回调内的 `this` 自动绑定到注册它的实例上
                //  obj.show=false;
                  obj.shaking=true;
-                console.log(obj)
+               // console.log(obj)
              }
          }
      });
