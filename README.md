@@ -29,6 +29,15 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 
 
 
+#popup对象
+| 名称                    |类型               |默认       | 说明
+| ----------------------- | ----------------- | -------- | ---------------------------------------- |
+| popup.show              |Boolean            |false      | 是否显示|
+| popup.shaking           |Boolean            |false      | 是否震动窗口|
+| popup.confirm           |Function           |无        |确认回调函数 |
+| popup.cancel            |Function           |无        |取消回调函数 (取消后会调用关闭回调)  |
+| popup.close             |Function           |无        |关闭回调函数 |
+
 
 #Event
 | 名称                    |说明                |

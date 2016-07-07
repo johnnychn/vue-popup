@@ -30,12 +30,14 @@
 <div id="example">
     <div class="btn" @click="popup.show=true" style="cursor: pointer">Open 1</div>
     <div class="btn" @click="popup2.show=true" style="cursor: pointer">Open 2</div>
-    <vue-popup title="确认?" :popup.sync="popup2"
-                z-index="100">
-     Do this?
+    <vue-popup title="确认?" :popup.sync="popup2" z-index="10000"
+               z-index="100">
+        Do this?
     </vue-popup>
 
-    <vue-popup close-color="#fff" title="PopUp" box-shadow="0 2px 3px #666" mask-background="rgba(0,0,100,0.7)" title-align="center" title-color="#fff" title-background="#337ab7" title-border-bottom="1px solid #2e6da4"
+    <vue-popup close-color="#fff" title="PopUp" box-shadow="0 2px 3px #666" mask-background="rgba(0,0,100,0.7)"
+               title-align="center" title-color="#fff" title-background="#337ab7"
+               title-border-bottom="1px solid #2e6da4"
                content-background="#fff" button-background="#337ab7" button-color="#fff"
                button-border="1px solid #2e6da4"
                :popup.sync="popup"
@@ -57,16 +59,24 @@
             FastClick.attach(document.body);
         }, false);
     }
-    ;
     new Vue({
         el: '#example',
-        data: {msg: 'aaa', picked: '1122', popup: {show: false, shaking: false}, popup2: {show: false, shaking: false}},
+        data: {
+            msg: 'aaa', picked: '1122',
+            popup: {
+                show: false, shaking: false, confirm: function (obj) {
+                    console.log('窗口1确认',obj)
+                }
+            }, popup2: {show: false, shaking: false,confirm: function (obj) {
+                console.log('窗口2确认',obj)
+            }}
+        },
         events: {
             'popup-confirm': function (obj) {
                 // 事件回调内的 `this` 自动绑定到注册它的实例上
                 //  obj.show=false;
                 obj.shaking = true;
-                console.log(obj)
+               // console.log(obj)
             }
         }
     });

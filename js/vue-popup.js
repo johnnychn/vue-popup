@@ -84,7 +84,7 @@ if (typeof Vue === 'undefined') {
             titleBackground: {type: String, default: "#fff"},
             titleBorderBottom: {type: String, default: "1px solid #ddd"},
             contentBackground: {type: String, default: "#fff"},
-            buttonColor:{type: String, default: "#000"},
+            buttonColor: {type: String, default: "#000"},
             buttonBackground: {type: String, default: "#fff"},
             buttonBorder: {type: String, default: "1px solid #666"},
             boxShadow: {type: String, default: "0 2px 3px #666"},
@@ -139,18 +139,27 @@ if (typeof Vue === 'undefined') {
                 this.mask_click = true;
             },
             close: function () {
+                if (_.isFunction(this.popup.close)) {
+                    this.popup.close.call(this.popup,this.popup)
+                }
                 this.popup.show = false;
                 this.popup.shaking = false;
                 this.$dispatch('popup-close', this.popup);
 
             },
             confirm: function () {
-
+                if (_.isFunction(this.popup.confirm)) {
+                    this.popup.confirm.call(this.popup,this.popup)
+                }
                 this.$dispatch('popup-confirm', this.popup);
             },
             cancel: function () {
-                this.close();
+
+                if (_.isFunction(this.popup.cancel)) {
+                    this.popup.cancel.call(this.popup,this.popup)
+                }
                 this.$dispatch('popup-cancel', this.popup);
+                this.close();
             }
         },
         computed: {
@@ -211,10 +220,10 @@ if (typeof Vue === 'undefined') {
                         height: this.$el.querySelector('.vue-popup-mask').clientHeight,
                         width: this.$el.querySelector('.vue-popup-mask').clientWidth
                     };
-                    popSize.width=parseInt(popSize.width);
+                    popSize.width = parseInt(popSize.width);
 
                     var css = {'margin-top': 0, 'overflow-x': 'hidden'};
-                    css['width']=popSize.width;
+                    css['width'] = popSize.width;
                     if (popSize.height < windowSize.height - 60) {
                         css['margin-top'] = (windowSize.height - popSize.height) / 2;
                         css['margin-bottom'] = 30
