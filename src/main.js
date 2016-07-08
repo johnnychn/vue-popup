@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VuePopUp from './VuePopUp.vue'
+import FastClick from 'fastclick'
 
+FastClick.attach(document.body)
 new Vue({
     el: 'body',
     components: {VuePopUp},
@@ -11,8 +13,6 @@ new Vue({
         }, cancel: function () {
         }, confirm: function (show) {
             this.popup2.shake=true;
-
-
         }
     }
 })
