@@ -1,6 +1,8 @@
 # vue-popup
 popup for vue.js
 
+[DEMO](http://htmlpreview.github.io/?https://github.com/johnnyGoo/vue-popup/blob/master/index.html)
+
 require [underscore](https://github.com/jashkenas/underscore) and [css-builder](https://github.com/johnnyGoo/css-builder)
 
 # setting
