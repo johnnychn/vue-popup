@@ -6,6 +6,8 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 # setting
 | 名称                    |类型               |默认       | 说明                                     |
 | ----------------------- | ----------------- | -------- | ---------------------------------------- |
+| show                    |Boolean            |false      | 是否显示|
+| shake                   |Boolean            |false      | 是否震动窗口|
 |mask-close               |Boolean            |true      | 点击空白处是否关闭                                        |
 |z-index                  |Number/String      |100       | z-index                                  |
 |title                    |String             |""        | 标题 如果''隐藏标题                               |
@@ -29,11 +31,6 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 
 
 
-#popup对象
-| 名称                    |类型               |默认       | 说明
-| ----------------------- | ----------------- | -------- | ---------------------------------------- |
-| popup.show              |Boolean            |false      | 是否显示|
-| popup.shaking           |Boolean            |false      | 是否震动窗口|
 
 
 #Event
@@ -47,35 +44,10 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 #Example
 * html
 ```html
-  <vue-popup title="确认?" :popup.sync="popup"   @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="100">
-     Do this?
-  </vue-popup>
-```
-* js
-```js
- new Vue({
-         el: '#example',
-         data: {msg: 'aaa', picked: '1122', popup: {show: false,shaking:false}},
-           methods:{
-                     close:function (obj) {
-                         console.log('关闭事件:',obj)
-                     },
-                     cancel:function (obj) {
-                         console.log('取消事件:',obj)
-                     }
-                     ,confirm: function (obj) {
-                         console.log('确认事件:',obj);
-                         return true; //返回true 继续冒泡
-                     }
-                 },events: {
-             'popup-confirm': function (obj) {
-                 // 事件回调内的 `this` 自动绑定到注册它的实例上
-               //  obj.show=false;
-                 obj.shaking=true;
-               // console.log(obj)
-             }
-         }
-     });
+  <vue-pop-up title="确认?" :show.sync="popup2.show" :shake.sync="popup2.shake"  @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="10000"
+                z-index="100">
+         Do this?
+     </vue-pop-up>
 ```
 
 

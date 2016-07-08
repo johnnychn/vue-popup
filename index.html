@@ -1,47 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta charset="UTF-8">
-    <title>PopUp for vue.js</title>
-    <link href="css/vue-popup.css" type="text/css" rel="stylesheet"/>
-    <script src="js/underscore.js"></script>
-    <script src="js/vue.js"></script>
-    <script src="js/fastclick.js"></script>
-    <script src="js/css-builder.0.0.1.min.js"></script>
-    <script src="js/vue-popup.js"></script>
-    <style>
-        .btn {
-            padding: 10px;
-            border: 1px solid #999;
-            border-radius: 10px;
-            margin-top: 6px;
-            text-align: center;
-        }
-
-    </style>
+    <meta charset="utf-8">
+    <title>vue-pop-up</title>
 </head>
+<style>
+.btn{
+    width: 40%;height: 200px;
+    background: #2b81af;
+    color: #fff;
+    line-height: 200px;
+    text-align: center;
+    float: left;margin-left: 20px;
+}
+.btn:hover{
+    background: #006600;
+    color: #fff;
+}
+
+</style>
 <body>
+
+
 <div id="example">
-    <div class="btn" @click="popup.show=true" style="cursor: pointer">Open 1</div>
+    <div class="btn" @click="popup.show=true" style="cursor: pointer;">Open 1</div>
     <div class="btn" @click="popup2.show=true" style="cursor: pointer">Open 2</div>
-    <vue-popup title="确认?" :popup.sync="popup2"  @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="10000"
+    <vue-pop-up title="确认?" :show.sync="popup2.show" :shake.sync="popup2.shake"  @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="10000"
                z-index="100">
         Do this?
-    </vue-popup>
+    </vue-pop-up>
 
-    <vue-popup close-color="#fff" title="PopUp" box-shadow="0 2px 3px #666" mask-background="rgba(0,0,100,0.7)"
+    <vue-pop-up close-color="#fff" title="PopUp" box-shadow="0 2px 3px #666" mask-background="rgba(0,0,100,0.7)"
                title-align="center" title-color="#fff" title-background="#337ab7"
                title-border-bottom="1px solid #2e6da4"
                content-background="#fff" button-background="#337ab7" button-color="#fff"
                button-border="1px solid #2e6da4"
-               :popup.sync="popup"
-               transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:0,scale:0.95}}"
+                :show.sync="popup.show" :shake.sync="popup.shake"
+                transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:0,scale:0.95}}"
                content=" 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/>
         <img src='./img/a.jpg' style='width: 100%'>
     到松<br/> 到松<br/>  到松<br/> 到松<br/>  <img src='./img/a.jpg' style='width: 100%'>
@@ -49,45 +44,9 @@
     到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button='确认'
                cancel-button='取消' z-index="100">
 
-    </vue-popup>
+    </vue-pop-up>
 
 </div>
+<script src="dist/build.js"></script>
 </body>
-<script>
-    if ('addEventListener' in document) {
-        document.addEventListener('DOMContentLoaded', function () {
-            FastClick.attach(document.body);
-        }, false);
-    }
-    new Vue({
-        el: '#example',
-        data: {
-            msg: 'aaa', picked: '1122',
-            popup: {
-                show: false, shaking: false
-            }, popup2: {show: false, shaking: false}
-        },
-        methods:{
-            close:function (obj) {
-                console.log('关闭事件:',obj)
-            },
-            cancel:function (obj) {
-                console.log('取消事件:',obj)
-            }
-            ,confirm: function (obj) {
-                console.log('确认事件:',obj);
-                return true; //返回true 继续冒泡
-            }
-        },
-        events: {
-            'popup-confirm': function (obj) {
-                // 事件回调内的 `this` 自动绑定到注册它的实例上
-                //  obj.show=false;
-                obj.shaking = true;
-               // console.log(obj)
-            }
-        }
-    });
-
-</script>
 </html>
