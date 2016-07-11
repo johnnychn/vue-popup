@@ -48,10 +48,26 @@
     到松<br/> 到松<br/>  到松<br/> 到松<br/>  <img src='./img/a.jpg' style='width: 100%'>
     到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button='确认'
                cancel-button='取消' z-index="100">
-
     </vue-pop-up>
 
 </div>
-<script src="dist/build.js"></script>
+<script src="dist/vue.min.js"></script>
+<script src="dist/vue-pop-up.js"></script>
+<script>
+    new Vue({
+        el: 'body',
+        components: {VuePopUp},
+        data: {
+            popup:{show:true,shake:false},popup2:{show:false,shake:false},
+            close: function () {
+
+            }, cancel: function () {
+            }, confirm: function (show) {
+                this.popup2.shake=true;
+            }
+        }
+    })
+
+</script>
 </body>
 </html>

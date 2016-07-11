@@ -2,11 +2,13 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/VuePopUp.vue',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    library: 'VuePopUp',
+    libraryTarget: 'umd',
+    filename: 'vue-pop-up.js'
   },
   resolveLoader: {
     root: path.join(__dirname, 'node_modules'),

@@ -122,8 +122,8 @@
 */
 <script>
     import _ from 'underscore'
-    import CssBuilder from './CssBuilder.js'
-    import Vue from 'vue'
+    import Smart from './smart.min.js'
+//    import Vue from 'vue'
 
     /*
      * 替代js本身的 eval,避免编译错误
@@ -136,14 +136,14 @@
 
     var shake_class_name = 'vue-popup-shake-animation';
 
-    var anim = CssBuilder.Animations.create({
+    var anim = Smart.Animations.create({
         '10%, 90%': {transform: 'translate3d(-2px, 0, 0)'},
         '20%, 80%': {transform: 'translate3d(4px, 0, 0)'},
         '30%, 50%, 70%': {transform: 'translate3d(-8px, 0, 0)'},
         '40%, 60%': {transform: 'translate3d(8px, 0, 0)'}
     });
 
-    CssBuilder.createCssObject('.' + shake_class_name, {
+    Smart.Css.createCssStyle('.' + shake_class_name, {
         'animation-name': anim.name,
         'animation-duration': '.82s',
         'animation-timing-function': 'cubic-bezier(0.36,0.07,0.19,0.97)',
@@ -273,7 +273,7 @@
             delete initCss.ext;
             _.each(initCss, function (obj, key) {
 
-                CssBuilder.createCssObject('.' + trans + '-' + key, obj, ext);
+                Smart.Css.createSmartCssStyle('.' + trans + '-' + key, obj, ext);
             });
             trans = this.mask_transition;
             var maskCss = {
@@ -283,9 +283,15 @@
             };
 
             _.each(maskCss, function (obj, key) {
-                CssBuilder.createCssObject('.' + trans + '-' + key, obj, ext);
+                Smart.Css.createSmartCssStyle('.' + trans + '-' + key, obj, ext);
             });
-            Vue.transition(trans, {
+            var VD=Vue;
+            if(window.Vue){
+                VD=window.Vue;
+            }else{
+                console.log('Vue is not defined')
+            }
+            VD.transition(trans, {
                 afterLeave: function (el) {
                     this.pop = false;
                 },
@@ -293,6 +299,7 @@
                     this.pop = true;
                 }
             });
+            this.pop = this.show;
 
 
         },
@@ -327,7 +334,7 @@
                         css['margin-bottom'] = 30
                     }
                     this.$el.querySelector('.vue-popup-scroll').scrollTop = 0;
-                    CssBuilder.cssSmartObject(this.$el.querySelector('.vue-popup-panel'), css, 'px');
+                    Smart.Css.smartCss(this.$el.querySelector('.vue-popup-panel'), css, 'px');
                 } else {
 
                 }
