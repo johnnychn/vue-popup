@@ -124,12 +124,11 @@
 
     if(!window.Smart){
         throw 'vue-popup required smart.js'
-    }else if(!window.Vue){
-        throw 'vue-popup required Vue'
     }
     var Smart=window.Smart;
+    var Css=Smart.Css;
+    var Event=Smart.Event;
     var _=Smart._;
-
     /*
      * 替代js本身的 eval,避免编译错误
      * */
@@ -172,7 +171,7 @@
             },
             title: {
                 type: String,
-                default: ''
+                default: 'Popup'
             },
             maskClose: {
                 type: Boolean,
@@ -290,12 +289,8 @@
             _.each(maskCss, function (obj, key) {
                 Smart.Css.createSmartCssStyle('.' + trans + '-' + key, obj, ext);
             });
-            var VD=Vue;
-            if(window.Vue){
-                VD=window.Vue;
-            }else{
-                console.log('Vue is not defined')
-            }
+
+            var VD=this.__proto__.constructor;
             VD.transition(trans, {
                 afterLeave: function (el) {
                     this.pop = false;
@@ -339,7 +334,7 @@
                         css['margin-bottom'] = 30
                     }
                     this.$el.querySelector('.vue-popup-scroll').scrollTop = 0;
-                    Smart.Css.smartCss(this.$el.querySelector('.vue-popup-panel'), css, 'px');
+                    Css.smartCss(this.$el.querySelector('.vue-popup-panel'), css, 'px');
                 } else {
 
                 }
