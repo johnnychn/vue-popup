@@ -121,9 +121,14 @@
 * Copyright 2013-2015 Johnny chen
 */
 <script>
-    import _ from 'underscore'
-    import Smart from './smart.min.js'
-//    import Vue from 'vue'
+
+    if(!window.Smart){
+        throw 'vue-popup required smart.js'
+    }else if(!window.Vue){
+        throw 'vue-popup required Vue'
+    }
+    var Smart=window.Smart;
+    var _=Smart._;
 
     /*
      * 替代js本身的 eval,避免编译错误
