@@ -122,6 +122,8 @@
 */
 <script>
 
+    var count=0
+
     if(!window.Smart){
         throw 'vue-popup required smart.js'
     }
@@ -212,15 +214,7 @@
         data: function () {
 
             var d = new Date();
-            var unid = Date.UTC(d.getFullYear()
-                            , d.getMonth()
-                            , d.getDate()
-                            , d.getHours()
-                            , d.getMinutes()
-                            , d.getSeconds()
-                            , d.getMilliseconds()) + _.random(0, 99999999);
-
-
+            var unid = count++;
             return {
                 pop: false,
                 mask_click: false,

@@ -29,8 +29,8 @@
       <file leaf-file-name="VuePopUp.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/VuePopUp.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="182" column="14" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="14" />
+            <state relative-caret-position="302">
+              <caret line="216" column="31" selection-start-line="216" selection-start-column="31" selection-end-line="216" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -89,7 +89,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="830" />
+    <option name="height" value="832" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -318,15 +318,21 @@
       <workItem from="1468251737481" duration="165000" />
       <workItem from="1468254866528" duration="1272000" />
       <workItem from="1468257147170" duration="68000" />
-      <workItem from="1468258013965" duration="152000" />
+      <workItem from="1468258013965" duration="1071000" />
+      <workItem from="1468373302129" duration="8000" />
+      <workItem from="1468373318773" duration="6000" />
+      <workItem from="1468373379111" duration="5000" />
+      <workItem from="1468401876026" duration="2000" />
+      <workItem from="1468519998766" duration="126000" />
+      <workItem from="1468520340544" duration="135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18257000" />
+    <option name="totallyTimeSpent" value="19458000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="830" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="832" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17829457" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -446,17 +452,17 @@
     <entry file="file://$PROJECT_DIR$/css/vue-popup.css" />
     <entry file="file://$PROJECT_DIR$/js/vue-popup.js" />
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="285">
             <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -498,8 +504,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/VuePopUp.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="182" column="14" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="14" />
+        <state relative-caret-position="302">
+          <caret line="216" column="31" selection-start-line="216" selection-start-column="31" selection-end-line="216" selection-end-column="31" />
           <folding />
         </state>
       </provider>
