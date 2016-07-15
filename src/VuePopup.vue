@@ -122,15 +122,15 @@
 */
 <script>
 
-    var count=0
+    var count = 0
 
-    if(!window.Smart){
+    if (!window.Smart) {
         throw 'vue-popup required smart.js'
     }
-    var Smart=window.Smart;
-    var Css=Smart.Css;
-    var Event=Smart.Event;
-    var _=Smart._;
+    var Smart = window.Smart;
+    var Css = Smart.Css;
+    var Event = Smart.Event;
+    var _ = Smart._;
     /*
      * 替代js本身的 eval,避免编译错误
      * */
@@ -253,6 +253,32 @@
             cancel: function () {
                 this.$dispatch('popup-cancel', this.show);
                 this.close();
+            },
+            updateSize: function () {
+                if (this.show == true) {
+                    var popSize = {
+                        height: this.$el.querySelector('.vue-popup-panel').clientHeight,
+                        width: this.$el.querySelector('.vue-popup-panel').clientWidth
+                    };
+                    var windowSize = {
+                        height: this.$el.querySelector('.vue-popup-mask').clientHeight,
+                        width: this.$el.querySelector('.vue-popup-mask').clientWidth
+                    };
+                    popSize.width = parseInt(popSize.width);
+
+                    var css = {'margin-top': 0, 'overflow-x': 'hidden'};
+                    //css['width'] = popSize.width;
+                    if (popSize.height < windowSize.height - 60) {
+                        css['margin-top'] = (windowSize.height - popSize.height) / 2;
+                        css['margin-bottom'] = 30
+                    } else {
+                        css['margin-top'] = 30;
+                        css['margin-bottom'] = 30
+                    }
+                    this.$el.querySelector('.vue-popup-scroll').scrollTop = 0;
+                    Css.smartCss(this.$el.querySelector('.vue-popup-panel'), css, 'px');
+
+                }
             }
         },
         computed: {
@@ -284,7 +310,7 @@
                 Smart.Css.createSmartCssStyle('.' + trans + '-' + key, obj, ext);
             });
 
-            var VD=this.__proto__.constructor;
+            var VD = this.__proto__.constructor;
             VD.transition(trans, {
                 afterLeave: function (el) {
                     this.pop = false;
@@ -294,6 +320,9 @@
                 }
             });
             this.pop = this.show;
+            if(this.show){
+                this.removeResize = Event.windowEvent('resize', this.updateSize)
+            }
 
 
         },
@@ -307,30 +336,14 @@
                 }
             },
             'show': function (val, oldVal) {
-                if (val == true) {
-                    var popSize = {
-                        height: this.$el.querySelector('.vue-popup-panel').clientHeight,
-                        width: this.$el.querySelector('.vue-popup-panel').clientWidth
-                    };
-                    var windowSize = {
-                        height: this.$el.querySelector('.vue-popup-mask').clientHeight,
-                        width: this.$el.querySelector('.vue-popup-mask').clientWidth
-                    };
-                    popSize.width = parseInt(popSize.width);
-
-                    var css = {'margin-top': 0, 'overflow-x': 'hidden'};
-                    css['width'] = popSize.width;
-                    if (popSize.height < windowSize.height - 60) {
-                        css['margin-top'] = (windowSize.height - popSize.height) / 2;
-                        css['margin-bottom'] = 30
-                    } else {
-                        css['margin-top'] = 30;
-                        css['margin-bottom'] = 30
+                if (val) {
+                    this.updateSize();
+                    if (this.removeResize) {
+                        this.removeResize()
                     }
-                    this.$el.querySelector('.vue-popup-scroll').scrollTop = 0;
-                    Css.smartCss(this.$el.querySelector('.vue-popup-panel'), css, 'px');
+                    this.removeResize = Event.windowEvent('resize', this.updateSize)
                 } else {
-
+                    this.removeResize();
                 }
 
 
