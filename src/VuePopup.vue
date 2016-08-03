@@ -19,7 +19,7 @@
     }
 
     .vue-popup > .vue-popup-mask {
-        position: absolute;
+        position: fixed;
         left: 0px;
         top: 0px;
         width: 100%;
@@ -96,7 +96,7 @@
                 <div class="close-button" v-show="closeButton" @click="close()">
                     <svg version="1.1" id="vue-popup-title-close" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="12px" height="12px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path d="M507.331,411.33c-0.002-0.002-0.004-0.004-0.006-0.005L352.003,256l155.322-155.325c0.002-0.002,0.004-0.003,0.006-0.005c1.672-1.673,2.881-3.627,3.656-5.708c2.123-5.688,0.912-12.341-3.662-16.915L433.952,4.674c-4.574-4.573-11.226-5.783-16.914-3.66c-2.08,0.775-4.035,1.984-5.709,3.655c0,0.002-0.002,0.003-0.004,0.005L256.001,160L100.677,4.675c-0.002-0.002-0.003-0.003-0.005-0.005c-1.673-1.671-3.627-2.88-5.707-3.655c-5.69-2.124-12.341-0.913-16.915,3.66L4.676,78.049c-4.574,4.574-5.784,11.226-3.661,16.914c0.776,2.08,1.985,4.036,3.656,5.708c0.002,0.001,0.003,0.003,0.005,0.005L160.001,256L4.676,411.326c-0.001,0.002-0.003,0.003-0.004,0.005c-1.671,1.673-2.88,3.627-3.657,5.707c-2.124,5.688-0.913,12.341,3.661,16.915l73.374,73.373c4.575,4.574,11.226,5.784,16.915,3.661c2.08-0.776,4.035-1.985,5.708-3.656c0.001-0.002,0.003-0.003,0.005-0.005l155.324-155.325l155.324,155.325c0.002,0.001,0.004,0.003,0.006,0.004c1.674,1.672,3.627,2.881,5.707,3.657c5.689,2.123,12.342,0.913,16.914-3.661l73.373-73.374c4.574-4.574,5.785-11.228,3.662-16.915C510.212,414.957,509.003,413.003,507.331,411.33z" fill="{{closeColor}}"/> </svg>
                 </div>
-                <div class="content">
+                <div class="content" :style="{maxHeight:maxHeight,overflow:'auto'}">
                     <slot>{{{content}}}</slot>
                 </div>
                 <div class="vue-popup-footer" v-show="footer">
@@ -208,7 +208,11 @@
             buttonBorder: {type: String, default: "1px solid #666"},
             boxShadow: {type: String, default: "0 2px 3px #666"},
             maskBackground: {type: String, default: "rgba(0, 0, 0, 0.6)"},
-            titleAlign: {type: String, default: "left"}
+            titleAlign: {type: String, default: "left"},
+            maxHeight: {
+                type: String,
+                default: ''
+            }
 
         },
         data: function () {
@@ -320,11 +324,19 @@
                 }
             });
             this.pop = this.show;
-            if(this.show){
+            if (this.show) {
                 this.removeResize = Event.windowEvent('resize', this.updateSize)
             }
 
-
+        }, ready: function () {
+            if (this.show) {
+                this.show=false;
+                var me = this;
+                Smart.ready(function () {
+                    setTimeout(me.updateSize, 10);
+                    me.show=true;
+                })
+            }
         },
         watch: {
             'shake': function (val, oldVal) {
