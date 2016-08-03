@@ -32,10 +32,8 @@
                z-index="100">
         Do this?
     </vue-pop-up>
-
     <vue-pop-up close-color="#fff" title="PopUp" box-shadow="0 2px 3px #666" mask-background="rgba(0,0,100,0.7)"
-               title-align="center" title-color="#fff" title-background="#337ab7"
-               title-border-bottom="1px solid #2e6da4"
+               :title-style="{textAlign:'center',color:'#fff',background:'#337ab7',borderBottom:'1px solid #2e6da4'}"
                content-background="#fff" button-background="#337ab7" button-color="#fff"
                button-border="1px solid #2e6da4" max-height="500px"
                 :show.sync="popup.show" :shake.sync="popup.shake"

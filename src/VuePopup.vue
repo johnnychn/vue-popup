@@ -45,7 +45,7 @@
     .vue-popup > .vue-popup-scroll > .vue-popup-panel > .vue-popup-title {
         box-sizing: content-box;
         padding: 10px 10px 6px 10px;
-        font-weight: 600;
+
     }
 
     .vue-popup > .vue-popup-scroll > .vue-popup-panel > .close-button {
@@ -90,7 +90,7 @@
         <div class="vue-popup-scroll" @click="maskClick()" v-show="show" :transition="panel_transition">
             <div class="vue-popup-panel" :class="{'vue-popup-shake-animation':shake==true}"
                  @click="panelClick()" :style="{background:contentBackground,boxShadow:boxShadow}">
-                <div :style="{color:titleColor,background:titleBackground,'border-bottom':titleBorderBottom,textAlign:titleAlign}"
+                <div :style="titleStyle"
                      class="vue-popup-title" v-show="title!=''">{{title}}
                 </div>
                 <div class="close-button" v-show="closeButton" @click="close()">
@@ -100,10 +100,10 @@
                     <slot>{{{content}}}</slot>
                 </div>
                 <div class="vue-popup-footer" v-show="footer">
-                    <div :style="{color:buttonColor,background:buttonBackground,border:buttonBorder}"
+                    <div :style="cancelStyle"
                          class="vue-popup-btn" v-show="cancelButton!=''" @click="cancel()">{{cancelButton}}
                     </div>
-                    <div :style="{color:buttonColor,background:buttonBackground,border:buttonBorder}"
+                    <div :style="confirmStyle"
                          class="vue-popup-btn" v-show="confirmButton!=''" @click="confirm()">{{confirmButton}}
                     </div>
                 </div>
@@ -199,21 +199,37 @@
                 default: 100
             },
             closeColor: {type: String, default: "#000"},
-            titleColor: {type: String, default: "#000"},
-            titleBackground: {type: String, default: "#fff"},
-            titleBorderBottom: {type: String, default: "1px solid #ddd"},
+            titleStyle: {
+                type: Object,
+                default: function () {
+                    return {
+                        color: "#000",
+                        background: "#fff",
+                        borderBottom: '1px solid #ddd',
+                        textAlign: "left",
+                        fontWeight: 0
+                    }
+                }
+
+
+            },
+            cancelStyle: {
+                type: Object, default: function () {
+                    return {color: '#000', background: '#fff', border: "1px solid #666"}
+                }
+            },
+            confirmStyle: {
+                type: Object, default: function () {
+                    return {color: '#000', background: '#fff', border: "1px solid #666"}
+                }
+            },
             contentBackground: {type: String, default: "#fff"},
-            buttonColor: {type: String, default: "#000"},
-            buttonBackground: {type: String, default: "#fff"},
-            buttonBorder: {type: String, default: "1px solid #666"},
             boxShadow: {type: String, default: "0 2px 3px #666"},
             maskBackground: {type: String, default: "rgba(0, 0, 0, 0.6)"},
-            titleAlign: {type: String, default: "left"},
             maxHeight: {
                 type: String,
                 default: ''
             }
-
         },
         data: function () {
 
@@ -330,11 +346,11 @@
 
         }, ready: function () {
             if (this.show) {
-                this.show=false;
+                this.show = false;
                 var me = this;
                 Smart.ready(function () {
                     setTimeout(me.updateSize, 10);
-                    me.show=true;
+                    me.show = true;
                 })
             }
         },
