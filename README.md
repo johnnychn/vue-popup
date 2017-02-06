@@ -12,7 +12,7 @@ require [underscore](https://github.com/jashkenas/underscore) and [css-builder](
 | shake                   |Boolean            |false      | 是否震动窗口|
 |mask-close               |Boolean            |true      | 点击空白处是否关闭                                        |
 |z-index                  |Number/String      |100       | z-index                                  |
-|title-style              |Obejct             |'1px solid #f0f0f0'|  标题样式                                       |
+|title-style              |Obejct             |{}|  标题样式                                       |
 |close-button             |Boolean            |true      | 是否现实关闭按钮                           |
 |close-color              |String             |'#fff'    | 关闭按钮颜色                              |
 |content-background       |String             |'#000'    | 内容背景颜色                              |
