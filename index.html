@@ -28,10 +28,20 @@
 <div id="example">
     <div class="btn" @click="popup.show=true" style="cursor: pointer;">Open 1</div>
     <div class="btn" @click="popup2.show=true" style="cursor: pointer">Open 2</div>
-    <vue-pop-up title="确认?" :show.sync="popup2.show" :shake.sync="popup2.shake"  @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="10000"
-               z-index="100">
-        Do this?
+    <!--<vue-pop-up title="确认?" :show.sync="popup2.show" :shake.sync="popup2.shake"  :mask-close=false @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="10000"-->
+               <!--z-index="100">-->
+        <!--Do this?-->
+    <!--</vue-pop-up>-->
+
+    <vue-pop-up :mask-close="false" :title-style="{'color':'#ff0000'}" :title=""
+                :popup-panel-style="{background:'#333','border-radius':'0px'}" :close-button="false"
+                :show.sync="popup2.show" cancel-button=""
+                confirm-button="确定" @popup-confirm="popup2.show=false" z-index="10000"
+                :confirm-style="{'float':'none','margin':'0px auto 5px auto','border-radius':'0px',width:'77px','text-align':'center',border:'1px solid #feae2d',color:'#feae2d'}"
+                z-index="100">
+        <img src="public/image/t_xtkk.png" class="width-100"/>
     </vue-pop-up>
+
     <vue-pop-up close-color="#fff" title="PopUp" box-shadow="0 2px 3px #666" mask-background="rgba(0,0,100,0.7)"
                :title-style="{textAlign:'center',color:'#fff',background:'#337ab7',borderBottom:'1px solid #2e6da4'}"
                content-background="#fff" button-background="#337ab7" button-color="#fff"

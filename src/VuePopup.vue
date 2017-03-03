@@ -89,7 +89,7 @@
              v-show="show"></div>
         <div class="vue-popup-scroll" @click="maskClick()" v-show="show" :transition="panel_transition">
             <div class="vue-popup-panel" :class="{'vue-popup-shake-animation':shake==true}"
-                 @click="panelClick()" :style="{background:contentBackground,boxShadow:boxShadow}">
+                 @click="panelClick()" :style="popupPanelStyle">
                 <div :style="titleStyle"
                      class="vue-popup-title" v-show="title!=''">{{title}}
                 </div>
@@ -142,14 +142,16 @@
 
     var shake_class_name = 'vue-popup-shake-animation';
 
-    var anim = Smart.Animations.create({
+
+//
+    var anim = Smart.Animations.create('vue-popup-shake-animation--keyframe',{
         '10%, 90%': {transform: 'translate3d(-2px, 0, 0)'},
         '20%, 80%': {transform: 'translate3d(4px, 0, 0)'},
         '30%, 50%, 70%': {transform: 'translate3d(-8px, 0, 0)'},
         '40%, 60%': {transform: 'translate3d(8px, 0, 0)'}
     });
 
-    Smart.Css.createCssStyle('.' + shake_class_name, {
+    Smart.Css.createSmartCssStyle('.' + shake_class_name, {
         'animation-name': anim.name,
         'animation-duration': '.82s',
         'animation-timing-function': 'cubic-bezier(0.36,0.07,0.19,0.97)',
@@ -173,7 +175,7 @@
             },
             title: {
                 type: String,
-                default: 'Popup'
+                default: ''
             },
             maskClose: {
                 type: Boolean,
@@ -213,6 +215,11 @@
 
 
             },
+            popupPanelStyle: {
+                type: Object, default: function () {
+                    return {background:'#fff',boxShadow:'0 2px 3px #666'}
+                }
+            },
             cancelStyle: {
                 type: Object, default: function () {
                     return {color: '#000', background: '#fff', border: "1px solid #666"}
@@ -223,8 +230,7 @@
                     return {color: '#000', background: '#fff', border: "1px solid #666"}
                 }
             },
-            contentBackground: {type: String, default: "#fff"},
-            boxShadow: {type: String, default: "0 2px 3px #666"},
+
             maskBackground: {type: String, default: "rgba(0, 0, 0, 0.6)"},
             maxHeight: {
                 type: String,
