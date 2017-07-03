@@ -26,39 +26,70 @@
         color: #fff;
     }
 
+    img {
+        vertical-align: middle;
+    }
+
+    .t300 {
+        transition: all 300ms;
+        -webkit-transition: all 300ms;
+        -moz-transition: all 300ms;
+        -ms-transition: all 300ms;
+        -o-transition: all 300ms;
+    }
+
 </style>
 <body>
 <div id="example">
-    <div class="btn" @click="popup.show=true" style="cursor: pointer;">Open 1</div>
-    <div class="btn" @click="popup2.show=true" style="cursor: pointer">Open 2</div>
+    <div class="btn" @click="popup.show=true" style="cursor: pointer;">外滚</div>
+
+    <div class="btn" @click="popup3.show=true" style="cursor: pointer">内滚</div>
+    <div v-for="i in 10"  style="float: left;margin: 20px;width: 200px;background-color: #0d3349;color: #fff;height: 200px"> {{i}}</div>
+    <div class="btn" @click="open" style="cursor: pointer">图</div>
     <!--<vue-pop-up title="确认?" :show.sync="popup2.show" :shake.sync="popup2.shake"  :mask-close=false @popup-close="close" @popup-cancel="cancel"  @popup-confirm="confirm" z-index="10000"-->
     <!--z-index="100">-->
     <!--Do this?-->
     <!--</vue-pop-up>-->
 
-    <vue-pop-up :mask-close="false" :size="size" :title-style="{'color':'#ff0000'}" :title=""
+    <vue-pop-up :mask-close="true" :size.sync="size" :title-style="{'color':'#ff0000'}" :title=""
                 :popup-panel-style="{background:'#333','border-radius':'0px',width:'200px'}" :close-button="false"
                 :show.sync="popup2.show" cancel-button=""
-                confirm-button="确定" @popup-confirm="popup2.show=false" z-index="10000"
+                confirm-button="" @popup-confirm="popup2.show=false" z-index="10000"
                 :confirm-style="{'float':'none','margin':'0px auto 5px auto','border-radius':'0px',width:'77px','text-align':'center',border:'1px solid #feae2d',color:'#feae2d'}"
-                z-index="100">
-        <img @load="update($event)"
-             src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492444887850&di=115ce1b275e4e8ccdae997e44ed85890&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2015%2F162%2F19%2F189TKH3IRK0F.jpg"
-             style="width:100%"/>
-    </vue-pop-up>
+                z-index="100"><img @click="change" @load="update($event)"
+                                   :src="src"
+                                   style="width:100%;height: 100%"/></vue-pop-up>
 
-    <vue-pop-up close-color="#fff" title="PopUp" box-shadow="0 2px 3px #666" mask-background="rgba(0,0,100,0.7)"
+    <vue-pop-up close-color="#fff" title="" box-shadow="0 2px 3px #666" :size="{width:400,height:1200}"
+                mask-background="rgba(0,0,100,0.7)"
+                :popup-panel-style="{background:'#fff','border-radius':'0px',width:'700px'}"
                 :title-style="{textAlign:'center',color:'#fff',background:'#337ab7',borderBottom:'1px solid #2e6da4'}"
                 content-background="#fff" button-background="#337ab7" button-color="#fff"
-                button-border="1px solid #2e6da4" max-height="500px"
+                button-border="1px solid #2e6da4"
                 :show.sync="popup.show" :shake.sync="popup.shake"
                 transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:0,scale:0.95}}"
                 content=" 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/>
         <img src='./img/a.jpg' style='width: 100%'>
     到松<br/> 到松<br/>  到松<br/> 到松<br/>  <img src='./img/a.jpg' style='width: 100%'>
     到松<br/> 到松<br/>  到松<br/> 到松<br/>  <img src='./img/a.jpg' style='width: 100%'>
-    到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button='确认'
-                cancel-button='取消' z-index="100">
+    到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button=''
+                cancel-button='' z-index="100">
+    </vue-pop-up>
+
+    <vue-pop-up close-color="#fff" title="" box-shadow="0 2px 3px #666" :size="{width:400,height:1200}"
+                mask-background="rgba(0,0,100,0.7)"
+                :popup-panel-style="{background:'#fff','border-radius':'0px',width:'700px'}"
+                :title-style="{textAlign:'center',color:'#fff',background:'#337ab7',borderBottom:'1px solid #2e6da4'}"
+                content-background="#fff" button-background="#337ab7" button-color="#fff"
+                button-border="1px solid #2e6da4" :max-height="500"
+                :show.sync="popup3.show" :shake.sync="popup3.shake"
+                transition-object="{transition:{transition:'all .4s cubic-bezier(.35,1.43,.56,1.01)',opacity:1,scale:1,'transition-delay': '.2s',},enter:{'transition-delay': '.2s',opacity:0,y:100,scale:1},leave:{'transition-delay': '.0s',opacity:0,y:0,scale:0.95}}"
+                content=" 到松<br/> 到松<br/> 到松<br/> 到松<br/> 到松<br/>
+        <img src='./img/a.jpg' style='width: 100%'>
+    到松<br/> 到松<br/>  到松<br/> 到松<br/>  <img src='./img/a.jpg' style='width: 100%'>
+    到松<br/> 到松<br/>  到松<br/> 到松<br/>  <img src='./img/a.jpg' style='width: 100%'>
+    到松<br/> 到松<br/>  到松<br/> 到松<br/> 到松<br/> 到松<br/>" :mask-close=false :close-button=true confirm-button=''
+                cancel-button='' z-index="100">
     </vue-pop-up>
 
 </div>
@@ -66,11 +97,24 @@
 <script src="dist/smart.min.js"></script>
 <script src="dist/vue-pop-up.js"></script>
 <script>
+
+    var nowID = 0;
+    var urls = [];
+    urls.push('http://www.005.tv/uploads/allimg/160720/6-160H0164I0b5.jpg')
+    urls.push('http://www.005.tv/uploads/allimg/160720/6-160H0164925920.jpg')
+    urls.push('http://www.005.tv/uploads/allimg/160720/1I0101427-30.jpg')
+    urls.push('http://upload.art.ifeng.com/2015/0811/1439261016833.jpg')
+    urls.push('http://img18.photophoto.cn/20110324/0005018328902149_s.jpg')
+
+
     new Vue({
         el: 'body',
         components: {VuePopUp},
-        data: {size: {width: 500, height: 600},
-            popup: {show: true, shake: false}, popup2: {show: false, shake: false},
+        data: {
+            size: {width: 500, height: 600}, src: urls[nowID],
+            popup: {show: false, shake: false},
+            popup2: {show: true, shake: false},
+            popup3: {show: false, shake: false},
             close: function () {
 
             }, cancel: function () {
@@ -79,14 +123,26 @@
             }
         },
         methods: {
+            change: function () {
+                nowID++
+                if (nowID >= urls.length) {
+                    nowID = 0;
+                }
+
+                this.src = urls[nowID]
+            },
+            open: function () {
+                this.popup2.show = true
+                this.change();
+
+            },
             update: function (event) {
                 var imgsize = Smart.Utils.imageNaturalSize(event.target);
-                var size = new Smart.Size(0,0,imgsize.width, imgsize.height);
-                var newsize = size.fixInRec(new Smart.Physics.Rect(new Smart.Physics.Point(), 600, 500));
-                this.size.width=newsize.width;
-                this.size.height=newsize.height;
+                var size = new Smart.Size(0, 0, imgsize.width, imgsize.height);
+                var newsize = size.fixInRec(new Smart.Physics.Rect(new Smart.Physics.Point(), 800, 600));
+                this.size.width = Math.ceil(newsize.width / Math.max(newsize.scale, 1)) + 20;
+                this.size.height = Math.ceil(newsize.height / Math.max(newsize.scale, 1)) + 20 + 1;
 
-                console.log(newsize)
             }
         }
     })
